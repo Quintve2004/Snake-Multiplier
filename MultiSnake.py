@@ -170,6 +170,15 @@ while True:
     wd.update()
     move_player_a()
     move_player_b()
+    print(player_a.xcor(), player_a.ycor())
+    if player_a.xcor == food.xcor()and player_a.ycor() == food.ycor():
+        x = random.randint(-14, 14) * 20
+        y = random.randint(-14, 14) * 20
+        food.goto(x,y)
+    if player_b.xcor == food.xcor()and player_b.ycor() == food.ycor():
+        x = random.randint(-14, 14) * 20
+        y = random.randint(-14, 14) * 20
+        food.goto(x,y)
 
     # Borders
     if player_a.xcor() >= 320:
@@ -196,10 +205,5 @@ while True:
     if player_b.ycor() <= -320:
         stop()
 
-    if food.xcor() == player_a.xcor and food.ycor() == player_a.ycor():
-        x = random.randint(-14, 14) * 20
-        y = random.randint(-14, 14) * 20
-        print("1")
-        food.goto(x, y)
 
 
