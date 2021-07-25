@@ -3,7 +3,7 @@ import turtle
 
 # Window Setup
 wd = turtle.Screen()
-wd.setup(width=580, height=580)
+wd.setup(width=680, height=680)
 wd.bgcolor("black")
 wd.tracer(0)
 
@@ -77,34 +77,42 @@ def move_player_b():
 
 # Key functions
 def upA():
-    player_a.direction = "up"
+    if player_a.direction != "down":
+        player_a.direction = "up"
 
 
 def downA():
-    player_a.direction = "down"
+    if player_a.direction != "up":
+        player_a.direction = "down"
 
 
 def leftA():
-    player_a.direction = "left"
+    if player_a.direction != "right":
+        player_a.direction = "left"
 
 
 def rightA():
-    player_a.direction = "right"
+    if player_a.direction != "left":
+        player_a.direction = "right"
 
 def upB():
-    player_b.direction = "up"
+    if player_b.direction != "down":
+        player_b.direction = "up"
 
 
 def downB():
-    player_b.direction = "down"
+    if player_b.direction != "up":
+        player_b.direction = "down"
 
 
 def leftB():
-    player_b.direction = "left"
+    if player_b.direction != "right":
+        player_b.direction = "left"
 
 
 def rightB():
-    player_b.direction = "right"
+    if player_b.direction != "left":
+        player_b.direction = "right"
 
 def startButton():
     player_a.direction = "left"
@@ -112,7 +120,13 @@ def startButton():
     startbutton.clear()
     startbutton.goto(1000,1000)
 
-
+def stop():
+    player_a.goto(20, 20)
+    player_b.goto(-20, -20)
+    player_a.direction = "stop"
+    player_b.direction = "stop"
+    startbutton.write("Tap Spacebar To Begin", align="center", font=("Courier", 15, "normal"))
+    
 # Key binding
 wd.listen()
 # Player A
@@ -128,8 +142,37 @@ wd.onkeypress(rightB, "Right")
 # Start Button
 wd.onkeypress(startButton, "space")
 
+
+
 # Main Game Loop
 while True:
     wd.update()
     move_player_a()
     move_player_b()
+
+    # Borders
+    if player_a.xcor() >= 320:
+        stop()
+
+    if player_a.xcor() <= -320:
+        stop()
+
+    if player_a.ycor() >= 320:
+        stop()
+
+    if player_a.ycor() <= -320:
+        stop()
+
+    if player_b.xcor() >= 320:
+        stop()
+
+    if player_b.xcor() <= -320:
+        stop()
+
+    if player_b.ycor() >= 320:
+        stop()
+
+    if player_b.ycor() <= -320:
+        stop()
+
+
