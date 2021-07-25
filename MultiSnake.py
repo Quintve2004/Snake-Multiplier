@@ -33,19 +33,19 @@ def move_player_a():
     if player_a.direction == "up":
         y = player_a.ycor() + 20
         player_a.sety(y)
-        time.sleep(0.1)
+        time.sleep(0.05)
     if player_a.direction == "down":
         y = player_a.ycor() - 20
         player_a.sety(y)
-        time.sleep(0.1)
+        time.sleep(0.05)
     if player_a.direction == "left":
         x = player_a.xcor() - 20
         player_a.setx(x)
-        time.sleep(0.1)
+        time.sleep(0.05)
     if player_a.direction == "right":
         x = player_a.xcor() + 20
         player_a.setx(x)
-        time.sleep(0.1)
+        time.sleep(0.05)
 
 
 # Player B
@@ -53,19 +53,19 @@ def move_player_b():
     if player_b.direction == "up":
         y = player_b.ycor() + 20
         player_b.sety(y)
-        time.sleep(0.1)
+        time.sleep(0.05)
     if player_b.direction == "down":
         y = player_b.ycor() - 20
         player_b.sety(y)
-        time.sleep(0.1)
+        time.sleep(0.05)
     if player_b.direction == "left":
         x = player_b.xcor() - 20
         player_b.setx(x)
-        time.sleep(0.1)
+        time.sleep(0.05)
     if player_b.direction == "right":
         x = player_b.xcor() + 20
         player_b.setx(x)
-        time.sleep(0.1)
+        time.sleep(0.05)
 
 
 # Key functions
