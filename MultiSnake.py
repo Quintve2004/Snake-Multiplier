@@ -27,6 +27,13 @@ player_b.goto(-20, -20)
 player_b.color("blue")
 player_b.direction = "stop"
 
+# StartButton
+startbutton = turtle.Turtle()
+startbutton.penup()
+startbutton.speed(0)
+startbutton.hideturtle()
+startbutton.color("white")
+startbutton.write("Tap Spacebar To Begin", align="center", font=("Courier", 15, "normal"))
 
 # Movement Function
 def move_player_a():
@@ -99,6 +106,11 @@ def leftB():
 def rightB():
     player_b.direction = "right"
 
+def startButton():
+    player_a.direction = "left"
+    player_b.direction = "right"
+    startbutton.clear()
+    startbutton.goto(1000,1000)
 
 
 # Key binding
@@ -113,6 +125,8 @@ wd.onkeypress(upB, "Up")
 wd.onkeypress(downB, "Down")
 wd.onkeypress(leftB, "Left")
 wd.onkeypress(rightB, "Right")
+# Start Button
+wd.onkeypress(startButton, "space")
 
 # Main Game Loop
 while True:
