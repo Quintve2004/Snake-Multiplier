@@ -1,5 +1,7 @@
 import time
 import turtle
+from random import randint
+
 
 # Window Setup
 wd = turtle.Screen()
@@ -27,6 +29,21 @@ player_b.goto(-20, -20)
 player_b.color("blue")
 player_b.direction = "stop"
 
+# Food
+food = turtle.Turtle()
+food.penup()
+food.speed(0)
+food.shape("circle")
+food.color("red")
+food.goto(40, 40)
+
+food1 = turtle.Turtle()
+food1.penup()
+food1.speed(0)
+food1.shape("circle")
+food1.color("red")
+food1.goto(40, 40)
+
 # StartButton
 startbutton = turtle.Turtle()
 startbutton.penup()
@@ -34,6 +51,10 @@ startbutton.speed(0)
 startbutton.hideturtle()
 startbutton.color("white")
 startbutton.write("Tap Spacebar To Begin", align="center", font=("Courier", 15, "normal"))
+
+# Segments snake
+segmentA = []
+segmentB = []
 
 # Movement Function
 def move_player_a():
@@ -126,7 +147,7 @@ def stop():
     player_a.direction = "stop"
     player_b.direction = "stop"
     startbutton.write("Tap Spacebar To Begin", align="center", font=("Courier", 15, "normal"))
-    
+
 # Key binding
 wd.listen()
 # Player A
@@ -174,5 +195,11 @@ while True:
 
     if player_b.ycor() <= -320:
         stop()
+
+    if food.xcor() == player_a.xcor and food.ycor() == player_a.ycor():
+        x = random.randint(-14, 14) * 20
+        y = random.randint(-14, 14) * 20
+        print("1")
+        food.goto(x, y)
 
 
